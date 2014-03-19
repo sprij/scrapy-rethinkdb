@@ -118,6 +118,8 @@ class RethinkDBPipelineTest(unittest.TestCase):
         # asserts that a item is processed
 
         item = Mock(spec=Item)
+        item._values = {}
+
         # mocking extension points
         self.pipeline.before_insert = Mock()
         self.pipeline.after_insert = Mock()
@@ -128,7 +130,7 @@ class RethinkDBPipelineTest(unittest.TestCase):
             item
         )
         self.pipeline.table.insert.assert_called_once_with(
-            item.__dict__, self.insert_options
+            item._values, self.insert_options
         )
         self.pipeline.driver.execute.assert_called_once_with(
             self.pipeline.table.insert.return_value

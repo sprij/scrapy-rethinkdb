@@ -3,7 +3,7 @@ from pip.req import parse_requirements
 
 setup(
     name='scrapy-rethinkdb',
-    version='0.0.1',
+    version='0.0.2',
     author='sprij',
     author_email='s.rijo@yahoo.com',
     description='Scrapy pipeline for rethinkdb.',

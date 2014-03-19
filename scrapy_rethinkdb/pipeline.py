@@ -75,12 +75,12 @@ class RethinkDBPipeline(object):
 
     def get_document(self, item):
         """Gets document from the item. By default returns the attribute
-        __dict__ from the item.
+        _values from the item.
 
         @param item: the item scraped
         @returns Document that represents the item.
         """
-        return item.__dict__
+        return item._values
 
     def before_insert(self, item):
         """

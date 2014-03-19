@@ -26,8 +26,9 @@ overwritten as in the following example to insert or update the item:
         'upsert': False
     }
 
-The document inserted by default is the dictionary from the item. This can be
-changed by extending the pipeline and overriding the method get_document.
+The document inserted by default is the dictionary with values from the item.
+This can be changed by extending the pipeline and overriding the method
+get_document.
 
 If any additional behaviour is needed before/after the insertion, such as
 changing the item, dropping it, etc, this can be done by extending the pipeline
