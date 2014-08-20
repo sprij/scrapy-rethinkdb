@@ -1,2 +1,2 @@
 Scrapy>=0.22.0
-rethinkdb>=1.11.0
+rethinkdb>=1.13.0

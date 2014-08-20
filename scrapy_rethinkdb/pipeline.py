@@ -67,7 +67,7 @@ class RethinkDBPipeline(object):
 
         self.before_insert(item)
         document = self.get_document(item)
-        insert_stmt = self.table.insert(document, self.insert_options)
+        insert_stmt = self.table.insert(document, **self.insert_options)
         insert_result = self.driver.execute(insert_stmt)
         self.after_insert(item, insert_result)
 
