@@ -1,5 +1,5 @@
 import unittest
-from mock import Mock, patch
+from mock import Mock, MagicMock, patch
 from itertools import combinations_with_replacement
 
 from scrapy_rethinkdb.pipeline import RethinkDBPipeline, NotConfigured, Item
@@ -12,7 +12,7 @@ class RethinkDBPipelineTest(unittest.TestCase):
         # default pipeline under test
         self.driver = Mock()
         self.table_name = Mock()
-        self.insert_options = Mock()
+        self.insert_options = MagicMock()
         self.pipeline = RethinkDBPipeline(
             self.driver, self.table_name, self.insert_options
         )
@@ -130,7 +130,7 @@ class RethinkDBPipelineTest(unittest.TestCase):
             item
         )
         self.pipeline.table.insert.assert_called_once_with(
-            item._values, self.insert_options
+            item._values
         )
         self.pipeline.driver.execute.assert_called_once_with(
             self.pipeline.table.insert.return_value
